@@ -1,0 +1,146 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.ul2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: rgb(47, 44, 44);
+  font-weight: bold;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.li2 a {
+  display: block;
+  color:gray;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+    
+.li2 a.active {
+  background-color: lightgray;
+  color: white;
+  font-weight:bold ;
+}
+
+.li2 a:hover:not(.active) {
+  background-color: lightgray;
+  color:white;
+}
+.ul1 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: red;
+  position:relative;
+}
+
+.li1 {
+  float: left;
+}
+
+.li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.li1 a:hover:not(.active) {
+  background-color: #b44545;
+}
+.fa-sign-out-alt{
+    color: white;
+    font-size: 2ex;
+}
+.container{
+    display:flex   
+    }
+.block{
+    flex:1;
+}
+.cont2{
+    display:flex;
+}
+.block2{
+    flex:1;
+}
+.cont3{
+    display:flex;
+}
+.block3{
+    flex:1;
+}
+
+
+</style>
+</head>
+<body>
+
+
+<ul class="ul1">
+  <li class="li1"><a href="#home">Blood Bank Management System</a></li>
+  <li class="li1" style="float:right"><a href="#about">Logout</a></li>
+</ul>
+<ul class="ul2">
+    <li class="li2"><a class="active" href="#home">Home</a></li>
+    <li class="li2"><a href="#news">Donor</a></li>
+    <li class="li2"><a href="#contact">Patient</a></li>
+    <li class="li2"><a href="#about">Donations</a></li>
+    <li class="li2"><a href="#about">Blood Requests</a></li>
+    <li class="li2"><a href="#about">Request History</a></li>
+    <li class="li2"><a href="#about">Blood Stock</a></li>
+</ul>
+<br>
+<br>
+<div class="container">
+    <H4 class="text-center">DONOR DETAILS</H4><br>
+    <table style="border-collapse: collapse;border: 1px solid black;">
+        <thead >
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Profile</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Address</th>
+                <th scope="col">Mobile</th>
+                <th class="text-right">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            &nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <tr>
+                <td> {{t.get_name}}</td>
+                <td> <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+                <td>{{t.bloodgroup}}</td>
+                <td>{{t.address}}</td>
+                <td>{{t.mobile}}</td>
+                
+                <td class="text-right">
+                    <button class="btn btn-primary badge-pill" style="width: 80px;"><a  style="text-decoration: none;color: green;" href="{% url 'update-donor' t.id  %}">EDIT</a> </button>
+                    <button class="btn btn-danger badge-pill" style="width: 80px;"><a  style="text-decoration: none;color: red;" href="{% url 'delete-donor' t.id  %}">DELETE</a> </button>
+                </td>
+            </tr>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </tbody>
+    
+    </table>
+</div>
+  
+
+</body>
+</html>
